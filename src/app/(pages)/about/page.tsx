@@ -21,7 +21,7 @@ export default function AboutPage() {
             </div>
             <div className="flex justify-center">
               <Image
-                src="/placeholder.svg?height=400&width=600"
+                src="/images/about-us.png"
                 width={600}
                 height={400}
                 alt="Trust Property Management Team"
@@ -170,7 +170,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center space-y-4">
                   <div className="relative w-32 h-32 rounded-full overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=128&width=128"
+                      src="/images/male-user.png"
                       width={128}
                       height={128}
                       alt="John Doe"
@@ -193,7 +193,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center space-y-4">
                   <div className="relative w-32 h-32 rounded-full overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=128&width=128"
+                      src="/images/female-user.png"
                       width={128}
                       height={128}
                       alt="Jane Smith"
@@ -219,7 +219,7 @@ export default function AboutPage() {
                 <div className="flex flex-col items-center space-y-4">
                   <div className="relative w-32 h-32 rounded-full overflow-hidden">
                     <Image
-                      src="/placeholder.svg?height=128&width=128"
+                      src="/images/male-user.png"
                       width={128}
                       height={128}
                       alt="Michael Johnson"

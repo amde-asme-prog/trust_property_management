@@ -1,56 +1,109 @@
-# Trust Property Management Platform
+# 🏢 Trust Property Management Platform
 
-A modern property management and listing platform built with Next.js, featuring apartment/property listings, search functionality, and user management.
+A modern, responsive property management and listing platform built with **Next.js 15**. Easily browse, filter, and manage property listings with a clean UI and powerful search functionality.
 
-## Features
+---
 
-- **Property Listings**: Browse and search through available properties for rent or sale
-- **Advanced Filtering**: Filter properties by:
+## 🚀 Features
+
+- **Property Listings**  
+  Explore available apartments, houses, townhouses, studios, and penthouses for rent or sale.
+
+- **Advanced Filtering**  
+  Refine your search based on:
+
   - Property type (Apartment, House, Townhouse, Studio, Penthouse)
   - Price range
   - Number of bedrooms
-  - Listing type (Rent/Buy)
-- **Search Functionality**: Search properties by title, address or description
-- **Responsive Design**: Grid and List view options that work across all devices
-- **Property Details**: Comprehensive property information including:
-  - Price and payment terms
+  - Listing type (Rent or Buy)
+
+- **Smart Search**  
+  Find properties by title, address, or description.
+
+- **Responsive Design**  
+  Fully responsive grid and list view layouts for seamless access across all devices.
+
+- **Detailed Property Pages**  
+  View complete property information, including:
+
+  - Pricing and payment terms
   - Bedrooms and bathrooms
   - Square footage
-  - Key features and amenities
-  - Property images
-- **User Interface**: Clean and modern UI with:
-  - Navigation header
+  - Image gallery
+
+- **User-Friendly Interface**  
+  Clean and intuitive UI featuring:
+  - Navigation bar
   - Property cards
-  - Filter sidebar
-  - Responsive mobile menu
+  - Sidebar filters
+  - Mobile-friendly menu
 
-## Tech Stack
+---
 
-- **Framework**: Next.js 15 with App Router and TypeScript
-- **Styling**:
-  - Tailwind CSS with animations
-  - Class Variance Authority for component variants
-  - Tailwind Merge for class merging
-- **UI Components**:
-  - Shadcn UI component library
-  - React Day Picker for date selection
-  - Recharts for data visualization
-  - Sonner for toast notifications
-  - Vaul for drawers
-- **Forms & Validation**:
-  - React Hook Form for form handling
-  - Zod for schema validation
-  - Input OTP for one-time password inputs
-- **Icons**: Lucide React icons
-- **State Management**: React hooks (useState, useContext)
-- **Date Handling**: date-fns
-- **Theme**: Next-themes for dark/light mode
-- **Development Tools**:
-  - ESLint for code linting
-  - Prettier for code formatting
-  - TypeScript for type safety
+## 🛠️ Tech Stack
 
-## Getting Started
+### Framework & Language
 
-1. Clone the repository
-2. Install dependencies:
+- **Next.js 15** with App Router
+- **TypeScript** for type safety
+
+### Styling & Components
+
+- **Tailwind CSS** with custom animations
+- **Class Variance Authority (CVA)** for component variants
+- **Tailwind Merge** for intelligent class merging
+- **Shadcn UI** for accessible and flexible UI components
+- **Lucide-react** for icons
+
+### UI Enhancements
+
+- **React Day Picker** for intuitive date selection
+
+### Forms & Validation
+
+- **React Hook Form** for form state management
+
+### State & Theming
+
+- Built-in React hooks (`useState`, `useContext`)
+- **date-fns** for date formatting and manipulation
+
+### Developer Experience
+
+- **ESLint** for consistent code linting
+- **Prettier** for code formatting
+- **TypeScript** for static typing and IntelliSense
+
+---
+
+## ⚙️ Getting Started
+
+1. **Clone the repository**
+   ```bash
+   Navigate to the project directory
+   ```
+
+bash
+Copy
+Edit
+cd trust-property-management
+Install dependencies
+
+bash
+Copy
+Edit
+npm install
+
+# or
+
+yarn install
+Run the development server
+
+bash
+Copy
+Edit
+npm run dev
+
+# or
+
+yarn dev

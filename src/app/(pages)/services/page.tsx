@@ -45,12 +45,12 @@ const ServiceSection = ({
       <div className="container px-4 md:px-6">
         <div
           className={`grid gap-6 lg:grid-cols-2 lg:gap-12 items-center ${
-            reverse ? "lg:flex-row-reverse" : "lg:flex-row"
+            reverse === true ? "lg:flex-row-reverse" : "lg:flex-row"
           }`}
         >
           <div
             className={`${
-              reverse
+              reverse === true
                 ? "order-last lg:order-first"
                 : "order-first lg:order-last"
             } flex justify-center`}
@@ -210,6 +210,7 @@ export default function ServicesPage() {
           "24/7 emergency response",
         ]}
         image="/images/residential-management.png"
+        reverse={false}
       />
       <ServiceSection
         id="commercial"
@@ -224,7 +225,7 @@ export default function ServicesPage() {
           "Vendor management and oversight",
         ]}
         image="/images/services.png"
-        reverse
+        reverse={true}
       />
       <ServiceSection
         id="financial"
@@ -239,6 +240,7 @@ export default function ServicesPage() {
           "Budget planning and forecasting",
         ]}
         image="/images/commercial-management.png"
+        reverse={false}
       />
       <ServiceSection
         id="maintenance"
@@ -253,7 +255,7 @@ export default function ServicesPage() {
           "Property improvement recommendations",
         ]}
         image="/images/services.png"
-        reverse
+        reverse={true}
       />
       <CaseStudiesSection />
       <CallToActionSection />

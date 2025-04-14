@@ -1,21 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ArrowRight, Calendar, User } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function FaqsPage() {
   return (
@@ -111,7 +103,7 @@ export default function FaqsPage() {
                 <AccordionContent>
                   Getting started is easy. Simply contact us through our
                   website, by phone, or by email to schedule a consultation.
-                  We'll discuss your needs, provide information about our
+                  We&apos;ll discuss your needs, provide information about our
                   services, and develop a customized management plan for your
                   property.
                 </AccordionContent>

@@ -32,7 +32,7 @@ const BlogPage = () => {
             <Card>
               <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/images/blog.png"
                   alt="Blog post image"
                   width={300}
                   height={200}
@@ -74,7 +74,7 @@ const BlogPage = () => {
             <Card>
               <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/images/blog.png"
                   alt="Blog post image"
                   width={300}
                   height={200}
@@ -118,7 +118,7 @@ const BlogPage = () => {
             <Card>
               <div className="relative aspect-video w-full overflow-hidden rounded-t-lg">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="/images/blog.png"
                   alt="Blog post image"
                   width={300}
                   height={200}

@@ -51,8 +51,8 @@ export default function ServicesPage() {
               </h2>
               <p className="text-slate-500 md:text-lg">
                 Our comprehensive residential property management services are
-                designed to maximize your property's potential while minimizing
-                your stress.
+                designed to maximize your property&apos;s potential while
+                minimizing your stress.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start">

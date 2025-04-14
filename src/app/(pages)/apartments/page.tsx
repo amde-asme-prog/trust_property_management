@@ -40,7 +40,7 @@ const propertyData = [
       "Air Conditioning",
       "Pet Friendly",
     ],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/house.png",
     featured: true,
   },
   {
@@ -57,7 +57,7 @@ const propertyData = [
     description:
       "Beautiful family home with large backyard in a quiet neighborhood.",
     features: ["Garage", "Garden", "Fireplace", "Basement", "Central Heating"],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/house.png",
     featured: false,
   },
   {
@@ -73,7 +73,7 @@ const propertyData = [
     address: "789 Pine St, Midtown, Anytown",
     description: "Cozy studio apartment perfect for young professionals.",
     features: ["Furnished", "Utilities Included", "Laundry", "Security"],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/house.png",
     featured: false,
   },
   {
@@ -96,7 +96,7 @@ const propertyData = [
       "Concierge",
       "Private Elevator",
     ],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/house.png",
     featured: true,
   },
   {
@@ -119,7 +119,7 @@ const propertyData = [
       "Updated Kitchen",
       "Porch",
     ],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/house.png",
     featured: false,
   },
   {
@@ -142,7 +142,7 @@ const propertyData = [
       "Balcony",
       "Storage",
     ],
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/images/house.png",
     featured: false,
   },
 ];
@@ -244,7 +244,9 @@ export default function ListingsPage() {
           <Tabs
             defaultValue="all"
             value={listingType}
-            onValueChange={(value) => setListingType(value as any)}
+            onValueChange={(value) =>
+              setListingType(value as "all" | "rent" | "buy")
+            }
           >
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="all">All Properties</TabsTrigger>

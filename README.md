@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trust Property Management Platform
+
+A modern property management and listing platform built with Next.js, featuring apartment/property listings, search functionality, and user management.
+
+## Features
+
+- **Property Listings**: Browse and search through available properties for rent or sale
+- **Advanced Filtering**: Filter properties by:
+  - Property type (Apartment, House, Townhouse, Studio, Penthouse)
+  - Price range
+  - Number of bedrooms
+  - Listing type (Rent/Buy)
+- **Search Functionality**: Search properties by title, address or description
+- **Responsive Design**: Grid and List view options that work across all devices
+- **Property Details**: Comprehensive property information including:
+  - Price and payment terms
+  - Bedrooms and bathrooms
+  - Square footage
+  - Key features and amenities
+  - Property images
+- **User Interface**: Clean and modern UI with:
+  - Navigation header
+  - Property cards
+  - Filter sidebar
+  - Responsive mobile menu
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router and TypeScript
+- **Styling**:
+  - Tailwind CSS with animations
+  - Class Variance Authority for component variants
+  - Tailwind Merge for class merging
+- **UI Components**:
+  - Shadcn UI component library
+  - React Day Picker for date selection
+  - Recharts for data visualization
+  - Sonner for toast notifications
+  - Vaul for drawers
+- **Forms & Validation**:
+  - React Hook Form for form handling
+  - Zod for schema validation
+  - Input OTP for one-time password inputs
+- **Icons**: Lucide React icons
+- **State Management**: React hooks (useState, useContext)
+- **Date Handling**: date-fns
+- **Theme**: Next-themes for dark/light mode
+- **Development Tools**:
+  - ESLint for code linting
+  - Prettier for code formatting
+  - TypeScript for type safety
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository
+2. Install dependencies:

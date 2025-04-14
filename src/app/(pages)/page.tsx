@@ -33,7 +33,7 @@ export default function HomePage() {
                 </h1>
                 <p className="text-slate-500 md:text-xl">
                   Professional property management services you can trust. We
-                  handle the details so you don't have to.
+                  handle the details so you don&apos;t have to.
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -58,7 +58,7 @@ export default function HomePage() {
             </div>
             <div className="flex justify-center">
               <Image
-                src="/images/apartments.jfif"
+                src="/images/apartments.png"
                 width={550}
                 height={550}
                 alt="Property Management"
@@ -200,8 +200,8 @@ export default function HomePage() {
                 What Our Clients Say
               </h2>
               <p className="max-w-[700px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Don't just take our word for it. Here's what our clients have to
-                say about our services.
+                Don&apos;t just take our word for it. Here&apos;s what our
+                clients have to say about our services.
               </p>
             </div>
           </div>
@@ -220,9 +220,9 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-500">
-                  "Trust Property Management has been handling my rental
+                  &quot;Trust Property Management has been handling my rental
                   properties for over 3 years now. Their professionalism and
-                  attention to detail have made my life so much easier."
+                  attention to detail have made my life so much easier.&quot;
                 </p>
               </CardContent>
             </Card>
@@ -240,9 +240,10 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-500">
-                  "The team at Trust Property Management has been exceptional in
-                  managing my commercial properties. Their expertise in tenant
-                  relations and maintenance has been invaluable."
+                  &quot;The team at Trust Property Management has been
+                  exceptional in managing my commercial properties. Their
+                  expertise in tenant relations and maintenance has been
+                  invaluable.&quot;
                 </p>
               </CardContent>
             </Card>
@@ -260,9 +261,9 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <p className="text-slate-500">
-                  "As a tenant, I've been impressed with how responsive Trust
-                  Property Management is. Maintenance requests are handled
-                  promptly and professionally."
+                  &quot;As a tenant, I&apos;ve been impressed with how
+                  responsive Trust Property Management is. Maintenance requests
+                  are handled promptly and professionally.&quot;
                 </p>
               </CardContent>
             </Card>

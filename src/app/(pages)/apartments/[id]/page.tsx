@@ -1,19 +1,36 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
+import { useParams } from "next/navigation";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { ArrowLeft, Bath, Bed, Calendar, Check, Home, MapPin, Share, Heart } from "lucide-react"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  ArrowLeft,
+  Bath,
+  Bed,
+  Calendar,
+  Check,
+  Home,
+  MapPin,
+  Share,
+  Heart,
+} from "lucide-react";
 
 // Mock property data
 const propertyData = [
@@ -45,9 +62,20 @@ const propertyData = [
       "Storage",
     ],
     amenities: {
-      interior: ["Central Air", "Dishwasher", "Hardwood Floors", "Walk-in Closets", "Washer/Dryer"],
+      interior: [
+        "Central Air",
+        "Dishwasher",
+        "Hardwood Floors",
+        "Walk-in Closets",
+        "Washer/Dryer",
+      ],
       exterior: ["Balcony", "Elevator", "Doorman", "Garage Parking"],
-      community: ["Fitness Center", "Rooftop Terrace", "Resident Lounge", "Package Service"],
+      community: [
+        "Fitness Center",
+        "Rooftop Terrace",
+        "Resident Lounge",
+        "Package Service",
+      ],
     },
     images: [
       "/placeholder.svg?height=600&width=800",
@@ -102,8 +130,19 @@ const propertyData = [
         "Spa Bathrooms",
         "Gourmet Kitchen",
       ],
-      exterior: ["Private Rooftop Terrace", "Private Elevator", "Balconies", "Multiple Parking Spaces"],
-      community: ["24/7 Concierge", "Security System", "Fitness Center", "Swimming Pool", "Valet Parking"],
+      exterior: [
+        "Private Rooftop Terrace",
+        "Private Elevator",
+        "Balconies",
+        "Multiple Parking Spaces",
+      ],
+      community: [
+        "24/7 Concierge",
+        "Security System",
+        "Fitness Center",
+        "Swimming Pool",
+        "Valet Parking",
+      ],
     },
     images: [
       "/placeholder.svg?height=600&width=800",
@@ -122,21 +161,25 @@ const propertyData = [
     yearBuilt: 2020,
     availableFrom: "Immediate",
   },
-]
+];
 
-export default function PropertyDetailPage({ params }: { params: { id: string } }) {
-  const [activeImage, setActiveImage] = useState(0)
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false)
-  const [isScheduleOpen, setIsScheduleOpen] = useState(false)
+export default function PropertyDetailPage() {
+  const [activeImage, setActiveImage] = useState(0);
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const [contactForm, setContactForm] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
-  })
+  });
+
+  const { id } = useParams();
 
   // Find the property by ID
-  const property = propertyData.find((item) => item.id === Number.parseInt(params.id))
+  const property = propertyData.find(
+    (item) => item.id === parseInt(id as string)
+  );
 
   // If property not found, show error
   if (!property) {
@@ -144,7 +187,10 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
       <div className="flex flex-col min-h-screen items-center justify-center p-4">
         <div className="text-center space-y-4">
           <h1 className="text-2xl font-bold">Property Not Found</h1>
-          <p className="text-slate-500">The property you're looking for doesn't exist or has been removed.</p>
+          <p className="text-slate-500">
+            The property you&apos;re looking for doesn&apos;t exist or has been
+            removed.
+          </p>
           <Button asChild>
             <Link href="/listings">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -153,36 +199,38 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
           </Button>
         </div>
       </div>
-    )
+    );
   }
 
   // Format price display
   const formatPrice = (price: number, type: string) => {
     if (type === "month") {
-      return `$${price.toLocaleString()}/month`
+      return `$${price.toLocaleString()}/month`;
     } else {
-      return `$${price.toLocaleString()}`
+      return `$${price.toLocaleString()}`;
     }
-  }
+  };
 
-  const handleContactFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setContactForm((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleContactFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setContactForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleContactFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission logic here
-    console.log("Contact form submitted:", contactForm)
-    setIsContactFormOpen(false)
-  }
+    console.log("Contact form submitted:", contactForm);
+    setIsContactFormOpen(false);
+  };
 
   const handleScheduleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle scheduling logic here
-    console.log("Viewing scheduled")
-    setIsScheduleOpen(false)
-  }
+    console.log("Viewing scheduled");
+    setIsScheduleOpen(false);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -215,10 +263,18 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
               </div>
             </div>
             <div className="mt-4 md:mt-0 flex items-center">
-              <Badge className={`mr-2 ${property.status === "For Rent" ? "bg-blue-500" : "bg-green-500"}`}>
+              <Badge
+                className={`mr-2 ${
+                  property.status === "For Rent"
+                    ? "bg-blue-500"
+                    : "bg-green-500"
+                }`}
+              >
                 {property.status}
               </Badge>
-              <p className="text-2xl font-bold ml-2">{formatPrice(property.price, property.priceType)}</p>
+              <p className="text-2xl font-bold ml-2">
+                {formatPrice(property.price, property.priceType)}
+              </p>
             </div>
           </div>
 
@@ -265,11 +321,15 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="text-center p-4 bg-slate-50 rounded-lg">
                       <Bed className="h-6 w-6 mx-auto text-slate-700" />
-                      <p className="mt-2 font-medium">{property.bedrooms} Bedrooms</p>
+                      <p className="mt-2 font-medium">
+                        {property.bedrooms} Bedrooms
+                      </p>
                     </div>
                     <div className="text-center p-4 bg-slate-50 rounded-lg">
                       <Bath className="h-6 w-6 mx-auto text-slate-700" />
-                      <p className="mt-2 font-medium">{property.bathrooms} Bathrooms</p>
+                      <p className="mt-2 font-medium">
+                        {property.bathrooms} Bathrooms
+                      </p>
                     </div>
                     <div className="text-center p-4 bg-slate-50 rounded-lg">
                       <Home className="h-6 w-6 mx-auto text-slate-700" />
@@ -277,7 +337,9 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                     </div>
                     <div className="text-center p-4 bg-slate-50 rounded-lg">
                       <Calendar className="h-6 w-6 mx-auto text-slate-700" />
-                      <p className="mt-2 font-medium">Built {property.yearBuilt}</p>
+                      <p className="mt-2 font-medium">
+                        Built {property.yearBuilt}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -289,7 +351,9 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                   <CardTitle>Description</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <p className="text-slate-600 whitespace-pre-line">{property.description}</p>
+                  <p className="text-slate-600 whitespace-pre-line">
+                    {property.description}
+                  </p>
                 </CardContent>
               </Card>
 
@@ -390,14 +454,23 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                     </div>
                     <div>
                       <h3 className="font-semibold">{property.agent.name}</h3>
-                      <p className="text-sm text-slate-500">{property.agent.phone}</p>
+                      <p className="text-sm text-slate-500">
+                        {property.agent.phone}
+                      </p>
                     </div>
                   </div>
                   <div className="space-y-3">
-                    <Button className="w-full" onClick={() => setIsContactFormOpen(true)}>
+                    <Button
+                      className="w-full"
+                      onClick={() => setIsContactFormOpen(true)}
+                    >
                       Contact Agent
                     </Button>
-                    <Button variant="outline" className="w-full" onClick={() => setIsScheduleOpen(true)}>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => setIsScheduleOpen(true)}
+                    >
                       Schedule Viewing
                     </Button>
                   </div>
@@ -425,7 +498,9 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                     </div>
                     <div className="flex justify-between py-2 border-b">
                       <span className="text-slate-500">Available From</span>
-                      <span className="font-medium">{property.availableFrom}</span>
+                      <span className="font-medium">
+                        {property.availableFrom}
+                      </span>
                     </div>
                   </div>
                 </CardContent>
@@ -467,13 +542,20 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
           <DialogHeader>
             <DialogTitle>Contact Agent</DialogTitle>
             <DialogDescription>
-              Fill out the form below to get in touch with {property.agent.name} about this property.
+              Fill out the form below to get in touch with {property.agent.name}{" "}
+              about this property.
             </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleContactFormSubmit} className="space-y-4 py-4">
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" value={contactForm.name} onChange={handleContactFormChange} required />
+              <Input
+                id="name"
+                name="name"
+                value={contactForm.name}
+                onChange={handleContactFormChange}
+                required
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -488,7 +570,13 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Phone</Label>
-              <Input id="phone" name="phone" value={contactForm.phone} onChange={handleContactFormChange} required />
+              <Input
+                id="phone"
+                name="phone"
+                value={contactForm.phone}
+                onChange={handleContactFormChange}
+                required
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="message">Message</Label>
@@ -502,7 +590,11 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
               />
             </div>
             <div className="flex justify-end space-x-2 pt-4">
-              <Button type="button" variant="outline" onClick={() => setIsContactFormOpen(false)}>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setIsContactFormOpen(false)}
+              >
                 Cancel
               </Button>
               <Button type="submit">Send Message</Button>
@@ -516,7 +608,9 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Schedule a Viewing</DialogTitle>
-            <DialogDescription>Choose a date and time to view {property.title}.</DialogDescription>
+            <DialogDescription>
+              Choose a date and time to view {property.title}.
+            </DialogDescription>
           </DialogHeader>
           <form onSubmit={handleScheduleSubmit} className="space-y-4 py-4">
             <div className="space-y-2">
@@ -544,7 +638,11 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
               <Textarea id="viewing-notes" />
             </div>
             <div className="flex justify-end space-x-2 pt-4">
-              <Button type="button" variant="outline" onClick={() => setIsScheduleOpen(false)}>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setIsScheduleOpen(false)}
+              >
                 Cancel
               </Button>
               <Button type="submit">Schedule</Button>
@@ -553,5 +651,5 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
         </DialogContent>
       </Dialog>
     </div>
-  )
+  );
 }

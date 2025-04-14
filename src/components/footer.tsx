@@ -18,7 +18,7 @@ export default function Footer() {
             <h3 className="text-lg font-bold">Trust Property Management</h3>
             <p className="text-slate-300">
               Professional property management services you can trust. We handle
-              the details so you don't have to.
+              the details so you don&apos;t have to.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-slate-300 hover:text-white">

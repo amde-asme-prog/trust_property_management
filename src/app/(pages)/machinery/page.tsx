@@ -1,14 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Grid, List, Search } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Grid, List, Search } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 // Mock equipment data
 const equipmentData = [
@@ -17,82 +30,98 @@ const equipmentData = [
     name: "Industrial Generator",
     category: "Power Equipment",
     location: "Warehouse A",
-    description: "High-capacity industrial generator suitable for construction sites and large events.",
+    description:
+      "High-capacity industrial generator suitable for construction sites and large events.",
     available: true,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/machineries.png",
   },
   {
     id: 2,
     name: "Commercial HVAC System",
     category: "Climate Control",
     location: "Warehouse B",
-    description: "Energy-efficient HVAC system for commercial buildings and office spaces.",
+    description:
+      "Energy-efficient HVAC system for commercial buildings and office spaces.",
     available: true,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/machineries.png",
   },
   {
     id: 3,
     name: "Security Camera System",
     category: "Security",
     location: "Warehouse A",
-    description: "Advanced security camera system with motion detection and remote monitoring capabilities.",
+    description:
+      "Advanced security camera system with motion detection and remote monitoring capabilities.",
     available: false,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/machineries.png",
   },
   {
     id: 4,
     name: "Commercial Refrigerator",
     category: "Appliances",
     location: "Warehouse C",
-    description: "Large-capacity commercial refrigerator suitable for restaurants and food service businesses.",
+    description:
+      "Large-capacity commercial refrigerator suitable for restaurants and food service businesses.",
     available: true,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/machineries.png",
   },
   {
     id: 5,
     name: "Industrial Pressure Washer",
     category: "Cleaning Equipment",
     location: "Warehouse B",
-    description: "High-pressure cleaning system for exterior surfaces and industrial cleaning applications.",
+    description:
+      "High-pressure cleaning system for exterior surfaces and industrial cleaning applications.",
     available: true,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/machineries.png",
   },
   {
     id: 6,
     name: "Commercial Lawn Mower",
     category: "Landscaping",
     location: "Warehouse C",
-    description: "Professional-grade lawn mower for commercial landscaping and property maintenance.",
+    description:
+      "Professional-grade lawn mower for commercial landscaping and property maintenance.",
     available: false,
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/images/machineries.png",
   },
-]
+];
 
 export default function InventoryPage() {
-  const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
-  const [searchTerm, setSearchTerm] = useState("")
-  const [categoryFilter, setCategoryFilter] = useState<string>("all")
-  const [locationFilter, setLocationFilter] = useState<string>("all")
-  const [availabilityFilter, setAvailabilityFilter] = useState<string>("all")
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
+  const [locationFilter, setLocationFilter] = useState<string>("all");
+  const [availabilityFilter, setAvailabilityFilter] = useState<string>("all");
 
   // Get unique categories and locations for filters
-  const categories = ["all", ...new Set(equipmentData.map((item) => item.category))]
-  const locations = ["all", ...new Set(equipmentData.map((item) => item.location))]
+  const categories = [
+    "all",
+    ...new Set(equipmentData.map((item) => item.category)),
+  ];
+  const locations = [
+    "all",
+    ...new Set(equipmentData.map((item) => item.location)),
+  ];
 
   // Filter equipment based on search term and filters
   const filteredEquipment = equipmentData.filter((item) => {
     const matchesSearch =
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = categoryFilter === "all" || item.category === categoryFilter
-    const matchesLocation = locationFilter === "all" || item.location === locationFilter
+      item.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      categoryFilter === "all" || item.category === categoryFilter;
+    const matchesLocation =
+      locationFilter === "all" || item.location === locationFilter;
     const matchesAvailability =
       availabilityFilter === "all" ||
       (availabilityFilter === "available" && item.available) ||
-      (availabilityFilter === "unavailable" && !item.available)
+      (availabilityFilter === "unavailable" && !item.available);
 
-    return matchesSearch && matchesCategory && matchesLocation && matchesAvailability
-  })
+    return (
+      matchesSearch && matchesCategory && matchesLocation && matchesAvailability
+    );
+  });
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -101,7 +130,9 @@ export default function InventoryPage() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Equipment Inventory</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Machineries
+              </h1>
               <p className="max-w-[700px] text-slate-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Browse our available equipment and maintenance resources
               </p>
@@ -148,7 +179,10 @@ export default function InventoryPage() {
                 ))}
               </SelectContent>
             </Select>
-            <Select value={availabilityFilter} onValueChange={setAvailabilityFilter}>
+            <Select
+              value={availabilityFilter}
+              onValueChange={setAvailabilityFilter}
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Availability" />
               </SelectTrigger>
@@ -188,7 +222,9 @@ export default function InventoryPage() {
         <div className="container px-4 md:px-6">
           {filteredEquipment.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-lg text-slate-500">No equipment found matching your criteria.</p>
+              <p className="text-lg text-slate-500">
+                No equipment found matching your criteria.
+              </p>
             </div>
           ) : viewMode === "grid" ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -203,7 +239,11 @@ export default function InventoryPage() {
                       className="object-cover w-full h-full"
                     />
                     <div
-                      className={`absolute top-2 right-2 px-2 py-1 text-xs font-medium rounded-full ${item.available ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
+                      className={`absolute top-2 right-2 px-2 py-1 text-xs font-medium rounded-full ${
+                        item.available
+                          ? "bg-green-100 text-green-800"
+                          : "bg-red-100 text-red-800"
+                      }`}
                     >
                       {item.available ? "Available" : "Unavailable"}
                     </div>
@@ -218,7 +258,12 @@ export default function InventoryPage() {
                     <p className="text-sm text-slate-500">{item.description}</p>
                     <div className="mt-2 flex justify-between items-center">
                       <p className="font-medium text-green-600">$75/day</p>
-                      <Badge variant="outline" className={item.available ? "bg-green-100" : "bg-red-100"}>
+                      <Badge
+                        variant="outline"
+                        className={
+                          item.available ? "bg-green-100" : "bg-red-100"
+                        }
+                      >
                         {item.available ? "Available" : "Unavailable"}
                       </Badge>
                     </div>
@@ -252,7 +297,11 @@ export default function InventoryPage() {
                         className="object-cover w-full h-full"
                       />
                       <div
-                        className={`absolute top-2 right-2 px-2 py-1 text-xs font-medium rounded-full ${item.available ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
+                        className={`absolute top-2 right-2 px-2 py-1 text-xs font-medium rounded-full ${
+                          item.available
+                            ? "bg-green-100 text-green-800"
+                            : "bg-red-100 text-red-800"
+                        }`}
                       >
                         {item.available ? "Available" : "Unavailable"}
                       </div>
@@ -263,19 +312,30 @@ export default function InventoryPage() {
                         <p className="text-sm text-slate-500">
                           {item.category} • {item.location}
                         </p>
-                        <p className="text-sm text-slate-500">{item.description}</p>
+                        <p className="text-sm text-slate-500">
+                          {item.description}
+                        </p>
                         <div className="mt-2 flex justify-between items-center">
                           <p className="font-medium text-green-600">$75/day</p>
-                          <Badge variant="outline" className={item.available ? "bg-green-100" : "bg-red-100"}>
+                          <Badge
+                            variant="outline"
+                            className={
+                              item.available ? "bg-green-100" : "bg-red-100"
+                            }
+                          >
                             {item.available ? "Available" : "Unavailable"}
                           </Badge>
                         </div>
                       </div>
                       <div className="mt-4 flex space-x-2">
                         <Button asChild>
-                          <Link href={`/inventory/${item.id}`}>View Details</Link>
+                          <Link href={`/inventory/${item.id}`}>
+                            View Details
+                          </Link>
                         </Button>
-                        {item.available && <Button variant="outline">Rent Now</Button>}
+                        {item.available && (
+                          <Button variant="outline">Rent Now</Button>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -286,5 +346,5 @@ export default function InventoryPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

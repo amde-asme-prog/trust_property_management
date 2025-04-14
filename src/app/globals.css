@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-color: white;
+  color: black;
+}
+
+.button-border {
+  border-color: #217.2 32.6% 17.5%;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
